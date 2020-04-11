@@ -18,8 +18,13 @@ F7 --> Open corresponding header/source file
 
 F8 --> Open the taglist menu
 
+Alt + h,j,k,l --> Moves between splits
 
+Crtl + h,v --> make horizontal and vertical splits
 
+qq -->  quit 
+
+qqq --> hard quit
 
 NERDTree
 -------
