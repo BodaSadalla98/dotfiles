@@ -4,6 +4,8 @@ Vim shortcuts
 General shortcuts
 ----------------
 
+<leader> = space
+
 Space --> Fold/unFold code == za
 
 zi --> Fold/unFold all file
@@ -51,3 +53,18 @@ crtlp
 Crtl + p --> open the search menu
 
 Esc --> closes the menu
+
+nerdcommenter
+-------------
+
+<leader> + cc --> normal comments   //
+  
+<leader> + cn -->  comment with multipart delimiters  /*  */
+ 
+<leader> + cn -->  comment with sexy format   /* **** */
+ 
+<leader> + cu --> uncomment
+  
+
+ 
+  
