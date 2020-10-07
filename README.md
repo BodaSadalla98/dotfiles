@@ -6,6 +6,8 @@ General shortcuts
 
 leader Key = space
 
+leader key + g --> go to definition
+
 Space --> Fold/unFold code == za
 
 zi --> Fold/unFold all file
