@@ -4,7 +4,7 @@ Vim shortcuts
 General shortcuts
 ----------------
 
-<leader> = space
+leader Key = space
 
 Space --> Fold/unFold code == za
 
