@@ -1,46 +1,54 @@
 " VIM Configuration File
-" Description: Optimized for C/C++ development, but useful also for other things.
-" Author: Gerhard Gappmeier
+"
+"
+filetype on
+filetype indent on
+set shell=/bin/zsh
+let $CXXFLAGS='-std=c++20 -O2 -Wall'
 
+" ====================== Set LEader Key ========================================
 let mapleader=" "
 set termguicolors " enables high colors quality
 
-" set UTF-8 encoding
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set shiftwidth=4
+set tabstop=4
+set smarttab
+set expandtab
+"===============================================================================
+set nofoldenable " Disable files auto indent
+
+" =================================== Encoding =================================
 set enc=utf-8
 set encoding=utf-8
 set fenc=utf-8
 set termencoding=utf-8
-" disable vi compatibility (emulation of old bugs)
-set nocompatible
-" use indentation of previous line
-set autoindent
-" use intelligent indentation for C
-set smartindent
-" configure tabwidth and insert spaces instead of tabs
-set tabstop=4        " tab width is 8 spaces
-set shiftwidth=4     " indent also with 4 spaces
-set softtabstop=4
+
+"===============================================================================
+"
+"
+set nocompatible " disable vi compatibility (emulation of old bugs)
+
+
+
 set fileformat=unix
 set list		"shows tabs and spaces
-set colorcolumn=80 "set line at column 80
-" wrap lines at 120 chars. 80 is somewaht antiquated with nowadays displays.
-set textwidth=120
-" turn syntax highlighting on
 set t_Co=256
 syntax on
 let python_highlight_all=1
-" colorscheme wombat256
-" turn line numbers on
 set number
-" highlight matching braces
-set showmatch
-" intelligent comments
-set comments=sl:/*,mb:\ *,elx:\ */
+set showmatch " highlight matching braces
+
+
+set comments=sl:/*,mb:\ *,elx:\ */   " intelligent comments
 
 set clipboard=unnamedplus "to copu text into external files
-
+set showtabline=2
 set mouse=a
-
+set ruler
 set foldmethod=syntax "Folding
 
 set autochdir
@@ -50,17 +58,35 @@ set cursorline
 set relativenumber
 set splitbelow
 set splitright
-
-
-
 autocmd BufWritePre * %s/\s\+$//e " spot EOL whitespaces
-let g:gruvbox_guisp_fallback = "bg"
-colorscheme gruvbox " setting the color shceme
 
-let g:ycm_clangd_binary_path = "/usr/bin/clangd-9"  "add path to clang binary
-" Let clangd fully control code completion
-let g:ycm_clangd_uses_ycmd_caching = 0
+" ==============================================================================
 
+" ================ File management =============================================
+
+" Turn off swap files
+set noswapfile
+set nobackup
+set nowb
+
+" TODO: improve behaviour
+" reload files changed outside vim
+set autoread
+" Triger `autoread` when files changes on disk
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" Notification after file change
+autocmd FileChangedShellPost *
+			\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+
+" ==============================================================================
+
+
+
+
+
+
+" =====================================  Start of Vundle =======================
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -80,67 +106,110 @@ Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'preservim/nerdcommenter'
 Plugin 'scrooloose/syntastic'
+Plugin 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Chiel92/vim-autoformat'
+
 call vundle#end()
 filetype plugin indent on
-" Vundle brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" ==============================================================================
+"========================== Gruvbox ============================================
+"let g:gruvbox_guisp_fallback = "bg"
+colorscheme gruvbox " setting the color shceme
+" ==============================================================================
+"========================== YCM ================================================
+let g:ycm_clangd_binary_path = "/usr/bin/clangd-9"  "add path to clang binary
+let g:ycm_clangd_uses_ycmd_caching = 0  " Let clangd fully control code completion
+let g:ycm_autoclose_preview_window_after_completion=1 " make sure YCM  window  disappear  after slection
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>   "leader + g got to definition
+let g:pymode_python = 'python3'
+let g:ycm_global_ycm_extra_conf = '.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
+" ==============================================================================
+"
+"
+" ========================= NerdTree ===========================================
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-" Syntastic Plugin
+
+
+" ==============================================================================
+"
+"
+" ========================= Syntastic ==========================================
 set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
-" End of Syntastic Plugin
-
-" Begin  of  YCM plugin
-let g:ycm_autoclose_preview_window_after_completion=1 " make sure YCM  window  disappear  after slection
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>  " leader + g got to definition
-
-"python with virtualenv support
-"py << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"  project_base_dir = os.environ['VIRTUAL_ENV']
-"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"  execfile(activate_this, dict(__file__=activate_this))
-"EOF
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" ==============================================================================
 
 
-" End of YCM Plugin
+" ========================= Ranger ==========================================
+" Make Ranger replace netrw and be the file explorer
+let g:rnvimr_ex_enable = 1
+nmap <space>r :RnvimrToggle<CR>
 
+" ==============================================================================
+
+
+
+
+" ========================= Airline ==========================================
+
+let g:airline_powerline_fonts = 1 " the arrows for the airline
+let g:airline#extensions#tabline#enabled = 1
+
+" ==============================================================================
+
+" ================ Keyboard bindings ===========================================
 nmap <M-h> <C-w>h
 nmap <M-j> <C-w>j
 nmap <M-k> <C-w>k
 nmap <M-l> <C-w>l
-nmap <C-v> :vs<CR>
-nmap  <C-h> :sp<CR>
+nmap <Leader>v :vs<CR>
+nmap  <Leader>h :sp<CR>
 
-"execute "set <M-j>=\ej"
+" ================ Folds =======================================================
+
+" clipboard
+" copy
+noremap <C-c> "+y
+" paste
+noremap <C-v> "+p
+" cut
+noremap <C-x> "+d
+" paste in insert mode
+inoremap <C-v> <Esc>"+pa
+
+" ==============================================================================
+"
+"
+" ================ Resize window ===============================================
+nnoremap <M-DOWN>    :resize -2<CR>
+nnoremap <M-UP>    :resize +2<CR>
+nnoremap <M-RIGHT>    :vertical resize -2<CR>
+nnoremap <M-LEFT>    :vertical resize +2<CR>
+
+" ==============================================================================
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
 nmap <M-j> <C-w>j
-let g:airline_powerline_fonts = 1 " the arrows for the airline
 
 
-" Enhanced keyboard mappings
 
- "Open and close folds
- nmap ff za
-
+"Open and close folds
+nmap ff za
+" Toggle tagbar
 nmap <F8> :TlistToggle<CR> "Opend the tagbar menue
 
 "Switches to header/source file
@@ -150,23 +219,51 @@ nmap qq :q<CR>
 nmap qqq :q!<CR>
 " in normal mode F2 will save the file
 nmap <F2> :w<CR>
+" in insert mode F2 will exit insert, save, enters insert again
+imap <F2> <ESC>:w<CR>i
 
 
 function! ToggleSpellChecking() "Function to toggle the spell Checking
 
 	if &spell==0
-	:setlocal spell spelllang=en
+		:setlocal spell spelllang=en
 	else
-	:setlocal  nospell
+		:setlocal  nospell
 	endif
 
 endfunction
 
 nmap <F3> :call ToggleSpellChecking()<CR>
 imap<F3> <ESC>:call ToggleSpellChecking()<CR>i
-" in insert mode F2 will exit insert, save, enters insert again
-imap <F2> <ESC>:w<CR>i
 
 nnoremap <silent> <expr> <F4> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 "nmap  <silent> <F4> :NERDTreeToggle<CR> "Toggle NERDTree
 imap  <F4> <ESC> :NERDTreeToggle <CR>
+
+nnoremap <silent> <F5> :w <bar> :make %<<CR>
+nnoremap <F6> :terminal ./%<CR>
+
+" Copies the Current buffer
+nmap <leader>y ggVG"+y''
+
+autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+
+
+augroup c
+	autocmd!
+	autocmd FileType c,cpp,h,hpp,glsl call MakeRun()
+augroup end
+
+function! MakeRun()
+	nnoremap <F5> :terminal  make %< && ./%< <cr>
+	inoremap <F5> <esc> :terminal  make %< && ./%< <cr>
+
+endfunction
+" Toggle search highlight
+nnoremap <F1> :set hlsearch!<CR>
+
+autocmd filetype cpp nnoremap <F6> :w <bar>   :te g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && ./%:r <CR>
+
+
+au BufWrite * :Autoformat
+
