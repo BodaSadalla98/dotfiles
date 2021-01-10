@@ -1,0 +1,21 @@
+{
+    "editor.fontSize": 20,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "explorer.confirmDelete": false,
+    "terminal.integrated.inheritEnv": false,
+    "python.languageServer": "Pylance",
+    "python.autoComplete.extraPaths": [
+    
+    ],
+    "window.zoomLevel": 1,
+    "python.analysis.extraPaths": [],
+    "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
+    "editor.minimap.enabled": false,
+    "python.pythonPath": "/home/boda/anaconda3/envs/chatterbot/bin/python"
+
+}

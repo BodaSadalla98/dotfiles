@@ -4,7 +4,7 @@
 filetype on
 filetype indent on
 set shell=/bin/zsh
-let $CXXFLAGS='-std=c++20 -O2 -Wall'
+let $CXXFLAGS='-std=c++20 -O2  -g -Werror -Wall'
 
 " ====================== Set LEader Key ========================================
 let mapleader=" "
@@ -31,11 +31,11 @@ set termencoding=utf-8
 "
 "
 set nocompatible " disable vi compatibility (emulation of old bugs)
-
+set scrolloff=7
 
 
 set fileformat=unix
-set list		"shows tabs and spaces
+set list        "shows tabs and spaces
 set t_Co=256
 syntax on
 let python_highlight_all=1
@@ -76,7 +76,7 @@ set autoread
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 " Notification after file change
 autocmd FileChangedShellPost *
-			\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+            \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 
 " ==============================================================================
@@ -112,21 +112,26 @@ Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Chiel92/vim-autoformat'
-
+Plugin 'xuhdev/SingleCompile'
+Plugin 'dracula/vim', { 'as': 'dracula' }
+Plugin 'tpope/vim-dispatch'
+Plugin 'puremourning/vimspector'
 call vundle#end()
 filetype plugin indent on
 " ==============================================================================
 "========================== Gruvbox ============================================
 "let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox " setting the color shceme
+let g:gruvbox_contrast_dark = 'hard'
 " ==============================================================================
 "========================== YCM ================================================
-let g:ycm_clangd_binary_path = "/usr/bin/clangd-9"  "add path to clang binary
+let g:ycm_clangd_binary_path = "/usr/bin/clangd-10"  "add path to clang binary
 let g:ycm_clangd_uses_ycmd_caching = 0  " Let clangd fully control code completion
 let g:ycm_autoclose_preview_window_after_completion=1 " make sure YCM  window  disappear  after slection
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>   "leader + g got to definition
+nnoremap <leader>g  :YcmCompleter GoToDefinition<CR>
+"ElseDeclaration<CR>   leader + g got to definition"
 let g:pymode_python = 'python3'
-let g:ycm_global_ycm_extra_conf = '.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " ==============================================================================
 "
@@ -157,12 +162,25 @@ let g:syntastic_check_on_wq = 0
 " ========================= Ranger ==========================================
 " Make Ranger replace netrw and be the file explorer
 let g:rnvimr_ex_enable = 1
-nmap <space>r :RnvimrToggle<CR>
+nmap <M-r> :RnvimrToggle<CR>
 
 " ==============================================================================
 
 
+" ========================= Vimspector ==========================================
 
+let g:vimspector_enable_mappings = 'HUMAN'
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>dx :VimspectorReset<CR>
+nnoremap <leader>de :VimspectorEval
+nnoremap <leader>do :VimspectorShowOutput
+
+
+
+
+
+
+" ==============================================================================
 
 " ========================= Airline ==========================================
 
@@ -206,7 +224,6 @@ nnoremap <S-TAB> :bprevious<CR>
 nmap <M-j> <C-w>j
 
 
-
 "Open and close folds
 nmap ff za
 " Toggle tagbar
@@ -225,11 +242,11 @@ imap <F2> <ESC>:w<CR>i
 
 function! ToggleSpellChecking() "Function to toggle the spell Checking
 
-	if &spell==0
-		:setlocal spell spelllang=en
-	else
-		:setlocal  nospell
-	endif
+    if &spell==0
+        :setlocal spell spelllang=en
+    else
+        :setlocal  nospell
+    endif
 
 endfunction
 
@@ -250,20 +267,29 @@ autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
 
 
 augroup c
-	autocmd!
-	autocmd FileType c,cpp,h,hpp,glsl call MakeRun()
+    autocmd!
+    autocmd FileType c,cpp,h,hpp,glsl call MakeRun()
 augroup end
 
 function! MakeRun()
-	nnoremap <F5> :terminal  make %< && ./%< <cr>
-	inoremap <F5> <esc> :terminal  make %< && ./%< <cr>
+    nnoremap <F5> :terminal  make %< && ./%< <cr>
+    inoremap <F5> <esc> :terminal  make %< && ./%< <cr>
 
 endfunction
 " Toggle search highlight
 nnoremap <F1> :set hlsearch!<CR>
 
-autocmd filetype cpp nnoremap <F6> :w <bar>   :te g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && ./%:r <CR>
+"autocmd filetype cpp nnoremap <F6> :w <bar>   :te g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && ./%:r <CR>
 
 
+autocmd filetype python nnoremap <F5> :terminal  python3 %<cr>
+autocmd filetype python inoremap <F5> <esc> :terminal python3 % <cr>
 au BufWrite * :Autoformat
 
+
+"autocmd FileType cpp set makeprg=g++\ \-Wall\ -Werror\ -std=c++20\ %\ -g\ -o\ %:r
+
+"autocmd filetype cpp nnoremap <F7> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+"nmap <F6> :SCCompile<cr>
+"nmap <F7> :SCCompileRun<cr>
