@@ -1,21 +1,26 @@
 {
     "editor.fontSize": 20,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "explorer.confirmDelete": false,
     "terminal.integrated.inheritEnv": false,
     "python.languageServer": "Pylance",
     "python.autoComplete.extraPaths": [
     
     ],
-    "window.zoomLevel": 1,
     "python.analysis.extraPaths": [],
     "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
     "editor.minimap.enabled": false,
-    "python.pythonPath": "/home/boda/anaconda3/envs/chatterbot/bin/python"
+    "python.pythonPath": "/home/boda/anaconda3/envs/telegram_bot/bin/python",
+    "explorer.confirmDragAndDrop": false,
+    "python.terminal.executeInFileDir": true,
+    "python.defaultInterpreterPath": "/home/boda/anaconda3/envs/telegram_bot/bin/python",
+    "files.associations": {
+        "*.vue": "vue"
+    },
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.quiet": true,
 
 }
