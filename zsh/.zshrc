@@ -68,7 +68,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git fzf-zsh-plugin)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,7 +123,19 @@ export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64\
                          ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 alias codna='conda'
-alias ll='ls -l'
+alias ll='ls -la'
 alias nv='nvim'
+alias cls='clear'
 
-# cd /media
+
+
+
+# fzf
+export FZF_DEFAULT_COMMAND='fdfind --type f --color=never --hidden'
+export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :50 {}'"
+
+export FZF_ALT_C_COMMAND='fdfind --type d . --color=never --hidden'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"

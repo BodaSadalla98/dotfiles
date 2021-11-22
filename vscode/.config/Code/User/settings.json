@@ -23,4 +23,15 @@
     "eslint.format.enable": true,
     "eslint.quiet": true,
 
+{
+    "terminal.integrated.cwd": "${fileDirname}",
+    "terminal.integrated.fontFamily": "Menlo for Powerline",
+    "workbench.colorTheme": "Default Dark+",
+    "python.autoComplete.addBrackets": true,
+    "python.analysis.completeFunctionParens": true,
+    "editor.formatOnSave": true,
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "git.ignoreLegacyWarning": true
 }
