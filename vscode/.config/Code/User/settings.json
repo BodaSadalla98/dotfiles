@@ -11,21 +11,16 @@
     ],
     "python.analysis.extraPaths": [],
     "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
-    "editor.minimap.enabled": false,
-    "python.pythonPath": "/home/boda/anaconda3/envs/telegram_bot/bin/python",
-    "explorer.confirmDragAndDrop": false,
+    "editor.minimap.enabled": true,
+    "explorer.confirmDragAndDrop": true,
     "python.terminal.executeInFileDir": true,
-    "python.defaultInterpreterPath": "/home/boda/anaconda3/envs/telegram_bot/bin/python",
     "files.associations": {
         "*.vue": "vue"
     },
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": true,
     "eslint.quiet": true,
-
-{
     "terminal.integrated.cwd": "${fileDirname}",
-    "terminal.integrated.fontFamily": "Menlo for Powerline",
     "workbench.colorTheme": "Default Dark+",
     "python.autoComplete.addBrackets": true,
     "python.analysis.completeFunctionParens": true,
