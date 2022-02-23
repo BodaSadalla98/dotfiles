@@ -10,7 +10,8 @@
     
     ],
     "python.analysis.extraPaths": [],
-    "terminal.integrated.fontFamily": "MesloLGS Nerd Font",
+    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontFamily": "Menlo for Powerline",
     "editor.minimap.enabled": true,
     "explorer.confirmDragAndDrop": true,
     "python.terminal.executeInFileDir": true,
@@ -28,5 +29,8 @@
     "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "git.ignoreLegacyWarning": true
+    "git.ignoreLegacyWarning": true,
+    "remote.SSH.connectTimeout": 60,
+    "notebook.output.textLineLimit": 100,
+    "jupyter.askForKernelRestart": false
 }
