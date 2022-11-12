@@ -58,4 +58,3 @@ fi
 
 export PATH="$PATH:/home/vlad/.cache/scalacli/local-repo/bin/scala-cli"
 
-sdfsdf
