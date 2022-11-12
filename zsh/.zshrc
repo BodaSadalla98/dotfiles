@@ -130,7 +130,7 @@ unset __conda_setup
 
 # export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
 # export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64\
-                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+#                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 alias codna='conda'
 alias ll='ls -la'
