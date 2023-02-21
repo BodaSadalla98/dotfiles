@@ -31,6 +31,24 @@
   "remote.SSH.connectTimeout": 60,
   "notebook.output.textLineLimit": 100,
   "jupyter.askForKernelRestart": false,
+  "cSpell.userWords": [
+    "downsampling",
+    "everytime"
+  ],
+  "files.autoSave": "onFocusChange",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "notebook.lineNumbers": "on",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.autofetch": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "remote.SSH.allowLocalServerDownload": true,
   "remote.SSH.remoteServerListenOnSocket": true,
   "remote.SSH.remotePlatform": {
     "10.53.126.49": "linux",
