@@ -1,36 +1,44 @@
 {
-    "editor.fontSize": 20,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "explorer.confirmDelete": false,
-    "terminal.integrated.inheritEnv": false,
-    "python.languageServer": "Pylance",
-    "python.autoComplete.extraPaths": [
-    
-    ],
-    "python.analysis.extraPaths": [],
-    "terminal.integrated.fontFamily": "monospace",
-    "terminal.integrated.fontFamily": "Menlo for Powerline",
-    "editor.minimap.enabled": true,
-    "explorer.confirmDragAndDrop": true,
-    "python.terminal.executeInFileDir": true,
-    "files.associations": {
-        "*.vue": "vue"
-    },
-    "eslint.alwaysShowStatus": true,
-    "eslint.format.enable": true,
-    "eslint.quiet": true,
-    "terminal.integrated.cwd": "${fileDirname}",
-    "workbench.colorTheme": "Default Dark+",
-    "python.autoComplete.addBrackets": true,
-    "python.analysis.completeFunctionParens": true,
-    "editor.formatOnSave": true,
-    "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "git.ignoreLegacyWarning": true,
-    "remote.SSH.connectTimeout": 60,
-    "notebook.output.textLineLimit": 100,
-    "jupyter.askForKernelRestart": false
+  "editor.fontSize": 20,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "explorer.confirmDelete": false,
+  "terminal.integrated.inheritEnv": false,
+  "python.languageServer": "Pylance",
+  "python.autoComplete.extraPaths": [],
+  "python.analysis.extraPaths": [],
+  "terminal.integrated.fontFamily": "monospace",
+  // "terminal.integrated.fontFamily": "Menlo for Powerline",
+  "editor.minimap.enabled": true,
+  "explorer.confirmDragAndDrop": true,
+  "python.terminal.executeInFileDir": true,
+  "files.associations": {
+    "*.vue": "vue"
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.quiet": true,
+  "terminal.integrated.cwd": "${fileDirname}",
+  "workbench.colorTheme": "Default Dark+",
+  "python.autoComplete.addBrackets": true,
+  "python.analysis.completeFunctionParens": true,
+  "editor.formatOnSave": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.ignoreLegacyWarning": true,
+  "remote.SSH.connectTimeout": 60,
+  "notebook.output.textLineLimit": 100,
+  "jupyter.askForKernelRestart": false,
+  "remote.SSH.remoteServerListenOnSocket": true,
+  "remote.SSH.remotePlatform": {
+    "10.53.126.49": "linux",
+    "41.33.212.182": "linux",
+    "10.53.222.2": "linux",
+    "10.53.126.172": "linux",
+    "24.199.116.102": "linux"
+  },
+  "files.autoSave": "onFocusChange",
+  "editor.unicodeHighlight.ambiguousCharacters": false
 }
