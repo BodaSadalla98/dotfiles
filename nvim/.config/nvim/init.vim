@@ -88,12 +88,13 @@ autocmd FileChangedShellPost *
 
 " =====================================  Start of Vundle =======================
 set rtp+=~/.config/nvim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
+Plugin 'morhetz/gruvbox'
 Plugin 'klen/python-mode'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ycm-core/YouCompleteMe'
+" Plugin 'ycm-core/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'

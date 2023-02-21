@@ -119,8 +119,6 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
-export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64\ ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -128,3 +126,19 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="$PATH:/opt/mssql-tools/bin"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/boda/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/boda/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/boda/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/boda/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

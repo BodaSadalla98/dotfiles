@@ -114,24 +114,24 @@ alias cpp_debug="sh ~/.scripts/cpp_debug.sh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
 
+export CONDA_AUTO_ACTIVATE_BASE=true
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/anaconda3/bin:$PATH"
+        export PATH="/$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
-# export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64\
-#                         ${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+conda activate
 
 alias codna='conda'
 alias ll='ls -la'
