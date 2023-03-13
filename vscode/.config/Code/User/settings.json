@@ -58,5 +58,8 @@
     "24.199.116.102": "linux"
   },
   "files.autoSave": "onFocusChange",
-  "editor.unicodeHighlight.ambiguousCharacters": false
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "[python]": {
+    "editor.formatOnType": true
+  }
 }

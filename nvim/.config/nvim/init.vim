@@ -44,8 +44,7 @@ set showmatch " highlight matching braces
 
 
 set comments=sl:/*,mb:\ *,elx:\ */   " intelligent comments
-
-set clipboard=unnamedplus "to copu text into external files
+set clipboard+=unnamedplus "to copu text into external files
 set showtabline=2
 set mouse=a
 set ruler
