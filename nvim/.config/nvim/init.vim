@@ -2,7 +2,7 @@
 "
 "
 filetype on
-filetype indent on
+"filetype indent on
 set shell=/bin/zsh
 let $CXXFLAGS='-std=c++20 -O2  -g -Werror -Wall'
 
@@ -12,14 +12,14 @@ set termguicolors " enables high colors quality
 
 " ================ Indentation ======================
 
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
 set shiftwidth=4
 set tabstop=4
 set smarttab
 set expandtab
 "===============================================================================
-set nofoldenable " Disable files auto indent
+" set nofoldenable " Disable files auto indent
 
 " =================================== Encoding =================================
 set enc=utf-8
@@ -117,7 +117,7 @@ Plugin 'dracula/vim', { 'as': 'dracula' }
 Plugin 'tpope/vim-dispatch'
 Plugin 'puremourning/vimspector'
 call vundle#end()
-filetype plugin indent on
+"filetype plugin indent on
 " ==============================================================================
 "========================== Gruvbox ============================================
 "let g:gruvbox_guisp_fallback = "bg"
@@ -284,7 +284,7 @@ nnoremap <F1> :set hlsearch!<CR>
 
 autocmd filetype python nnoremap <F5> :terminal  python3 %<cr>
 autocmd filetype python inoremap <F5> <esc> :terminal python3 % <cr>
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
 
 
 "autocmd FileType cpp set makeprg=g++\ \-Wall\ -Werror\ -std=c++20\ %\ -g\ -o\ %:r
