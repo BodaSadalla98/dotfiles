@@ -89,6 +89,7 @@ autocmd FileChangedShellPost *
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'ThePrimeagen/vim-be-good'
 Plugin 'morhetz/gruvbox'
 Plugin 'klen/python-mode'
 Plugin 'VundleVim/Vundle.vim'
