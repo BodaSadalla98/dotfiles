@@ -31,10 +31,7 @@
   "remote.SSH.connectTimeout": 60,
   "notebook.output.textLineLimit": 100,
   "jupyter.askForKernelRestart": false,
-  "cSpell.userWords": [
-    "downsampling",
-    "everytime"
-  ],
+  "cSpell.userWords": ["downsampling", "everytime"],
   "files.autoSave": "onFocusChange",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -61,5 +58,6 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "[python]": {
     "editor.formatOnType": true
-  }
+  },
+  "python.defaultInterpreterPath": "/home/boda/anaconda3/envs/aner/bin/python"
 }

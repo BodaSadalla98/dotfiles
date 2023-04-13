@@ -137,7 +137,11 @@ alias codna='conda'
 alias ll='ls -la'
 alias nv='nvim'
 alias cls='clear'
-
+alias tx='tmux'
+alias gs='git status'
+alias ga='git add --all'
+alias gc='git commit -m'
+alias gp='git push'
 
 
 
