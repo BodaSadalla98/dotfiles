@@ -155,3 +155,8 @@ export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :50 {}'"
 export FZF_ALT_C_COMMAND='fdfind --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+
+
+## Disable the o+w dir hilight color
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"

@@ -52,12 +52,17 @@
     "41.33.212.182": "linux",
     "10.53.222.2": "linux",
     "10.53.126.172": "linux",
-    "24.199.116.102": "linux"
+    "24.199.116.102": "linux",
+    "10.53.126.46": "linux",
+    "143.198.99.217": "linux",
+    "mbzuai": "linux",
+    "hpclabs.mbzu.ae": "linux",
+    "10.127.30.61": "linux"
   },
   "files.autoSave": "onFocusChange",
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "[python]": {
     "editor.formatOnType": true
   },
-  "python.defaultInterpreterPath": "/home/boda/anaconda3/envs/aner/bin/python"
+  "python.defaultInterpreterPath": "/home/boda/anaconda3/bin/python"
 }
